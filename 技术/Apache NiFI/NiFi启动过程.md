@@ -18,9 +18,9 @@ protected static NiFiProperties convertArgumentsToValidatedNiFiProperties(String
 }
 ```
 这里注意第二个参数，创建了一个启动类加载器：
-![](assets/NiFi启动过程/file-20241208214428746.png)
+![](NiFi启动过程/file-20241208214428746.png)
 创建了一个URLClassLoader，把lib/bootstrap目录下的jar加载进来。那么这个目录下有哪些jar呢？
-![](assets/NiFi启动过程/file-20241208214719769.png)
+![](NiFi启动过程/file-20241208214719769.png)
 
 
 # 2、 启动
@@ -36,6 +36,6 @@ protected static NiFiProperties convertArgumentsToValidatedNiFiProperties(String
 - 非集群环境通过context listener监听ContextInitialized Servlet事件去初始化flow
 下面是源码的注释解释：
 org.apache.nifi.web.contextlistener.ApplicationStartupContextListener#contextInitialized：
-![](assets/NiFi启动过程/file-20241209001650379.png)
+![](NiFi启动过程/file-20241209001650379.png)
 
-![](assets/NiFi启动过程/file-20241209001857136.png)
+![](NiFi启动过程/file-20241209001857136.png)
