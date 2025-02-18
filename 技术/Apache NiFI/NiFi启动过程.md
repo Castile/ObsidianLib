@@ -1,10 +1,10 @@
 # 0 整体概览
 
-![](nifi启动流程.png)
+![](NiFi启动过程/nifi启动流程.png)
 
 # 1、入口
 入口类是org.apache.nifi.NiFi， 这个类包含一个主函数：
-![](file-20241208213918398.png)
+![](NiFi启动过程/file-20241208213918398.png)
 两个步骤：
 1、 加载NiFi的配置文件
 2、创建一个NiFi对象，将配置文件传入
@@ -18,9 +18,9 @@ protected static NiFiProperties convertArgumentsToValidatedNiFiProperties(String
 }
 ```
 这里注意第二个参数，创建了一个启动类加载器：
-![](file-20241208214428746.png)
+![](assets/NiFi启动过程/file-20241208214428746.png)
 创建了一个URLClassLoader，把lib/bootstrap目录下的jar加载进来。那么这个目录下有哪些jar呢？
-![](file-20241208214719769.png)
+![](assets/NiFi启动过程/file-20241208214719769.png)
 
 
 # 2、 启动
@@ -36,6 +36,6 @@ protected static NiFiProperties convertArgumentsToValidatedNiFiProperties(String
 - 非集群环境通过context listener监听ContextInitialized Servlet事件去初始化flow
 下面是源码的注释解释：
 org.apache.nifi.web.contextlistener.ApplicationStartupContextListener#contextInitialized：
-![](file-20241209001650379.png)
+![](assets/NiFi启动过程/file-20241209001650379.png)
 
-![](file-20241209001857136.png)
+![](assets/NiFi启动过程/file-20241209001857136.png)
